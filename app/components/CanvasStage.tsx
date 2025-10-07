@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { gsap } from 'gsap';
 import Lenis from 'lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initTimeline } from '@/lib/gsapTimeline';
@@ -23,7 +24,7 @@ export default function CanvasStage({ children }: { children: React.ReactNode })
       return;
     }
 
-    let tl: any = null;
+    let tl: gsap.core.Timeline | null = null;
 
     // Add delay to ensure hydration loader has faded before animations start
     const animationTimer = setTimeout(() => {
