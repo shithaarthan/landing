@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function initTimeline() {
-  // Hero section animations - handle SceneIntro fade-out
+  // Small delay to ensure hydration is complete before animations start
   gsap.set("[data-scene-intro-element]", { opacity: 1 });
 
   const introTrigger = ScrollTrigger.create({

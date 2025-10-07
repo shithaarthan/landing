@@ -23,13 +23,20 @@ export default function CanvasStage({ children }: { children: React.ReactNode })
       return;
     }
 
-    const tl = initTimeline();
+    let tl: any = null;
 
-    // Sync ScrollTrigger with Lenis
-    lenis.on('scroll', ScrollTrigger.update);
+    // Add delay to ensure hydration loader has faded before animations start
+    const animationTimer = setTimeout(() => {
+      tl = initTimeline();
+      // Sync ScrollTrigger with Lenis
+      lenis.on('scroll', ScrollTrigger.update);
+    }, 300);
 
     return () => {
-      tl.kill();
+      clearTimeout(animationTimer);
+      if (tl) {
+        tl.kill();
+      }
       lenis.destroy();
     };
   }, [reducedMotion]);
