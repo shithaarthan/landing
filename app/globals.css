@@ -1,6 +1,23 @@
 @import "tailwindcss";
 
 :root {
+  /* Tinty Brand Color Palette */
+  --color-primary-purple: #8B7B9E;
+  --color-accent-purple: #A78BBA;
+  --color-deep-purple: #6B5B7E;
+  --color-soft-beige: #E8D9D8;
+  --color-premium-white: #F9F6F5;
+  --color-charcoal: #2D2D2D;
+  --color-gold: #D4AF37;
+  
+  /* Original app colors */
+  --color-bg: #DED3D7;
+  --color-accent: #9F85A8;
+  --color-foreground: #2A2C2F;
+  --color-surface: #FFFFFF;
+  --color-muted: #C0B8BF;
+  --color-darkmuted: #696569;
+
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -8,8 +25,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair-display);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +37,120 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-foreground);
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-display: swap;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary-purple), var(--color-accent-purple), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient backgrounds */
+.gradient-purple {
+  background: linear-gradient(135deg, var(--color-primary-purple), var(--color-accent-purple));
+}
+
+.gradient-purple-gold {
+  background: linear-gradient(135deg, var(--color-deep-purple), var(--color-primary-purple), var(--color-gold));
+}
+
+/* Premium button styles */
+.btn-primary {
+  background: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(159, 133, 168, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(159, 133, 168, 0.4);
+  background: var(--color-primary-purple);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--color-accent);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Section spacing */
+.section {
+  padding: 6rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
 }
