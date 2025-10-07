@@ -160,7 +160,7 @@ export default function SceneTestimonials() {
 
               {/* Content */}
               <blockquote className="text-[var(--color-charcoal)] mb-6 leading-relaxed">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </blockquote>
 
               {/* Author */}

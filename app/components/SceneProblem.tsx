@@ -124,7 +124,7 @@ export default function SceneProblem() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative">
+            <div className="relative chaos">
               {/* Frustrated shopper illustration placeholder */}
               <div className="relative bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl p-8 md:p-12">
                 <div className="space-y-6">
@@ -170,7 +170,7 @@ export default function SceneProblem() {
                     </motion.div>
                   </div>
 
-                  {/* Clothing items with uncertain states */}
+                  {/* Clothing items with uncertain states - these are the chaos items for GSAP */}
                   <div className="flex justify-center gap-4">
                     {[1, 2, 3].map((i) => (
                       <motion.div
@@ -184,7 +184,7 @@ export default function SceneProblem() {
                           repeat: Infinity,
                           ease: "easeInOut"
                         }}
-                        className="w-16 h-20 bg-white rounded-lg shadow-md opacity-60"
+                        className={`item w-16 h-20 bg-white rounded-lg shadow-md opacity-60`}
                       />
                     ))}
                   </div>

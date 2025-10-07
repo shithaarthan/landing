@@ -54,11 +54,37 @@ export default function WaitlistForm() {
       <button
         type="submit"
         disabled={loading}
-        className="px-6 py-3 rounded bg-[var(--color-accent)] text-[var(--color-surface)] font-semibold hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] disabled:opacity-50"
+        className="relative px-6 py-3 rounded bg-[var(--color-accent)] text-[var(--color-surface)] font-semibold hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] disabled:opacity-50 overflow-hidden group/button"
       >
-        {loading ? 'Joining...' : 'Join Waitlist'}
+        <span className="group-hover/button:translate-x-24 text-center transition duration-500 inline-block">
+          {loading ? 'Joining...' : 'Join Waitlist'}
+        </span>
+        <div className="-translate-x-24 group-hover/button:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-[var(--color-surface)] z-20">
+          <PlusIcon className="h-5 w-5" />
+        </div>
       </button>
       {message && <p className="text-center text-[var(--color-foreground)]">{message}</p>}
     </form>
   );
 }
+
+const PlusIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 5v14" />
+      <path d="M5 12h14" />
+    </svg>
+  );
+};

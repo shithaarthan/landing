@@ -30,7 +30,7 @@ export default function SceneCTA() {
   }, []);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--color-accent)] via-[var(--color-primary-purple)] to-[var(--color-accent-purple)] overflow-hidden">
+    <section ref={ref} className="cta relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--color-accent)] via-[var(--color-primary-purple)] to-[var(--color-accent-purple)] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -97,19 +97,29 @@ export default function SceneCTA() {
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
               <motion.button
-                className="px-8 py-4 bg-[var(--color-gold)] text-[var(--color-charcoal)] rounded-2xl font-bold text-lg hover:shadow-2xl transition-all"
+                className="relative px-8 py-4 bg-[var(--color-gold)] text-[var(--color-charcoal)] rounded-2xl font-bold text-lg hover:shadow-2xl transition-all overflow-hidden group/button"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Start Styling Free
+                <span className="group-hover/button:translate-x-40 text-center transition duration-500 inline-block">
+                  Start Styling Free
+                </span>
+                <div className="-translate-x-40 group-hover/button:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-[var(--color-charcoal)] z-20">
+                  <SparklesIcon className="h-6 w-6" />
+                </div>
               </motion.button>
               
               <motion.button
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
+                className="relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all overflow-hidden group/button"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Watch Demo
+                <span className="group-hover/button:translate-x-32 text-center transition duration-500 inline-block">
+                  Watch Demo
+                </span>
+                <div className="-translate-x-32 group-hover/button:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 text-white z-20">
+                  <PlayIcon className="h-6 w-6" />
+                </div>
               </motion.button>
             </motion.div>
 
@@ -199,3 +209,63 @@ export default function SceneCTA() {
     </section>
   );
 }
+
+const SparklesIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M4 4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+      <path d="M4 14a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+      <path d="M14 4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+      <path d="M14 16a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+      <path d="M4 20h.01" />
+      <path d="M8 20h.01" />
+      <path d="M12 20h.01" />
+      <path d="M16 20h.01" />
+      <path d="M20 20h.01" />
+      <path d="M20 16h.01" />
+      <path d="M20 12h.01" />
+      <path d="M20 8h.01" />
+      <path d="M8 16h.01" />
+      <path d="M12 16h.01" />
+      <path d="M16 16h.01" />
+      <path d="M16 12h.01" />
+      <path d="M16 8h.01" />
+      <path d="M8 8h.01" />
+      <path d="M12 8h.01" />
+      <path d="M8 12h.01" />
+      <path d="M12 12h.01" />
+    </svg>
+  );
+};
+
+const PlayIcon = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
+    </svg>
+  );
+};

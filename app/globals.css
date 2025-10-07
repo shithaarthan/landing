@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Tinty Brand Color Palette */
+  /* Enhanced Fashion Brand Color Palette */
   --color-primary-purple: #8B7B9E;
   --color-accent-purple: #A78BBA;
   --color-deep-purple: #6B5B7E;
@@ -9,7 +9,10 @@
   --color-premium-white: #F9F6F5;
   --color-charcoal: #2D2D2D;
   --color-gold: #D4AF37;
-  
+  --color-rose-gold: #E8B4B8;
+  --color-warm-gray: #F5F1F0;
+  --color-slate: #4A5568;
+
   /* Original app colors */
   --color-bg: #DED3D7;
   --color-accent: #9F85A8;
@@ -95,37 +98,61 @@ html {
   background: linear-gradient(135deg, var(--color-deep-purple), var(--color-primary-purple), var(--color-gold));
 }
 
-/* Premium button styles */
+/* Enhanced Fashion Button Styles */
 .btn-primary {
-  background: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent-purple), var(--color-primary-purple));
   color: white;
   font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 0.75rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(159, 133, 168, 0.3);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(139, 123, 158, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(159, 133, 168, 0.4);
-  background: var(--color-primary-purple);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(139, 123, 158, 0.4);
+  background: linear-gradient(135deg, var(--color-primary-purple), var(--color-accent-purple));
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary-purple);
   font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 0.75rem;
-  border: 2px solid var(--color-accent);
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  border: 2px solid var(--color-primary-purple);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: var(--color-accent);
+  background: var(--color-primary-purple);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(139, 123, 158, 0.3);
 }
 
 /* Card styles */
@@ -153,4 +180,313 @@ html {
   .section {
     padding: 3rem 1rem;
   }
+}
+
+/* Premium Feature Card Enhancements */
+.feature-card {
+  perspective: 1000px;
+}
+
+.feature-card .card {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.feature-card:hover .card {
+  transform: rotateY(5deg) rotateX(2deg) translateZ(20px);
+}
+
+/* Enhanced gradient animations */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Floating animation for premium elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 123, 158, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 123, 158, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Premium backdrop blur effects */
+.premium-backdrop {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced hover states for premium feel */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* 3D card flip effect support */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Fashion-forward Typography */
+.font-display {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-heading {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.font-body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Fashion Magazine Style Text Effects */
+.text-shadow-soft {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-elegant {
+  text-shadow: 0 4px 8px rgba(139, 123, 158, 0.3);
+}
+
+/* Premium Material Design Effects */
+.material-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.material-shadow-hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Fashion Color Accents */
+.accent-gold {
+  background: linear-gradient(135deg, var(--color-gold), #FFD700);
+}
+
+.accent-purple {
+  background: linear-gradient(135deg, var(--color-primary-purple), var(--color-accent-purple));
+}
+
+.accent-rose {
+  background: linear-gradient(135deg, var(--color-rose-gold), #F0C0C8);
+}
+
+/* Elegant Border Styles */
+.border-elegant {
+  border: 1px solid rgba(139, 123, 158, 0.2);
+}
+
+.border-golden {
+  border: 2px solid var(--color-gold);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Fashion Layout Helpers */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.text-balance {
+  text-wrap: balance;
+  hyphens: auto;
+}
+
+/* Premium Interactive Elements */
+.interactive-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.interactive-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--color-primary-purple), var(--color-accent-purple), var(--color-gold));
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.interactive-glow:hover::before {
+  opacity: 0.7;
+}
+
+/* Fashion Grid System */
+.fashion-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (min-width: 768px) {
+  .fashion-grid {
+    gap: 3rem;
+  }
+}
+
+/* Elegant Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Premium Focus States */
+.focus-ring {
+  transition: all 0.2s ease;
+}
+
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 123, 158, 0.3);
+  border-radius: 0.5rem;
+}
+
+/* Fashion Icon Styles */
+.icon-elegant {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.icon-elegant:hover {
+  filter: drop-shadow(0 4px 8px rgba(139, 123, 158, 0.3));
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Magazine-style Image Overlays */
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 123, 158, 0.1) 0%,
+    rgba(167, 139, 186, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+  opacity: 1;
+}
+
+/* Premium Scroll Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fashion Color Themes */
+.theme-warm {
+  background: linear-gradient(135deg, var(--color-soft-beige), var(--color-warm-gray));
+}
+
+.theme-cool {
+  background: linear-gradient(135deg, var(--color-soft-beige), #F0F2F5);
+}
+
+.theme-dark {
+  background: linear-gradient(135deg, var(--color-charcoal), #3A3A3A);
+  color: white;
 }

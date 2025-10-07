@@ -39,7 +39,7 @@ export default function SceneSolution() {
             transition={{ duration: 0.6 }}
             className="relative order-2 md:order-1"
           >
-            <div className="relative">
+            <div className="relative ui-mock">
               {/* Before/After visualization */}
               <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
                 <div className="space-y-6">
@@ -198,6 +198,7 @@ export default function SceneSolution() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-charcoal)]">Instant Confidence</h4>
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   <p className="text-[var(--color-charcoal)] opacity-70">
                     Know exactly what you're getting before clicking "buy". Shop with certainty.
                   </p>
