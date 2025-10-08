@@ -24,21 +24,23 @@ export default function Header() {
       // Close mobile menu immediately
       setIsMobileMenuOpen(false);
 
-      // For mobile devices, use a more reliable approach
-      if (window.innerWidth <= 768) {
+      // Check if Lenis is available (desktop smooth scrolling)
+      const lenis = (window as any).lenis;
+      if (lenis) {
+        // Use Lenis scrollTo for smooth desktop scrolling
+        lenis.scrollTo(element, {
+          offset: -80, // Account for fixed header height
+          duration: 1.2,
+          easing: (t: number) => 1 - Math.pow(1 - t, 3), // easeOutCubic
+        });
+      } else {
+        // For mobile devices or when Lenis is not available, use native scroll
         const rect = element.getBoundingClientRect();
         const offsetTop = window.pageYOffset + rect.top - 80; // Account for fixed header height
 
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
-        });
-      } else {
-        // Desktop scroll behavior
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest'
         });
       }
     } else {

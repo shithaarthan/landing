@@ -18,6 +18,8 @@ useEffect(() => {
 
     if (!isMobile && !reducedMotion) {
       lenis = new Lenis();
+      // Store lenis instance globally for Header navigation
+      (window as any).lenis = lenis;
       raf = function raf_time(time: number) {
         if (lenis) {
           lenis.raf(time);
