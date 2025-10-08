@@ -13,7 +13,7 @@ import SceneCTA from '@/components/SceneCTA';
 
 export default function Home() {
   return (
-    <div className="story-root">
+    <div className="story-root w-full box-border">
       <Header />
       <CanvasStage>
         {/* Hero Section */}

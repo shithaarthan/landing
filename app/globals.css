@@ -39,6 +39,11 @@
   }
 }
 
+html, body {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-foreground);
