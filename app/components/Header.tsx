@@ -2,6 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Lenis from 'lenis';
+
+// Extend Window interface to include lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +33,7 @@ export default function Header() {
       setIsMobileMenuOpen(false);
 
       // Check if Lenis is available (desktop smooth scrolling)
-      const lenis = (window as any).lenis;
+      const lenis = window.lenis;
       if (lenis) {
         // Use Lenis scrollTo for smooth desktop scrolling
         lenis.scrollTo(element, {

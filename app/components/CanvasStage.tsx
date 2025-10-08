@@ -7,6 +7,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initTimeline } from '@/lib/gsapTimeline';
 import { usePrefersReducedMotion } from '@/lib/usePrefersReducedMotion';
 
+// Extend Window interface to include lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
+
 export default function CanvasStage({ children }: { children: React.ReactNode }) {
   const reducedMotion = usePrefersReducedMotion();
 
@@ -19,7 +26,7 @@ useEffect(() => {
     if (!isMobile && !reducedMotion) {
       lenis = new Lenis();
       // Store lenis instance globally for Header navigation
-      (window as any).lenis = lenis;
+      window.lenis = lenis;
       raf = function raf_time(time: number) {
         if (lenis) {
           lenis.raf(time);
