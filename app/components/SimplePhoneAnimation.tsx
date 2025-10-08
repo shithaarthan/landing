@@ -6,7 +6,7 @@ const SimplePhoneAnimation = () => {
       {/* Actual Tinty App Icon and Name */}
       <div className="text-center">
         <img
-          src="/icon.png"
+          src={process.env.NODE_ENV === 'production' ? '/landing/icon.png' : '/icon.png'}
           alt="Tinty Logo"
           className="w-48 h-48 rounded-xl mx-auto mb-10"
         />
