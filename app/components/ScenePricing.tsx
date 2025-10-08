@@ -107,7 +107,7 @@ export default function ScenePricing() {
   }, []);
 
   return (
-    <section ref={ref} className="section bg-white py-20">
+    <section id="pricing" ref={ref} className="section bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div

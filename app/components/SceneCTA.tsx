@@ -30,7 +30,7 @@ export default function SceneCTA() {
   }, []);
 
   return (
-    <section ref={ref} className="cta relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--color-accent)] via-[var(--color-primary-purple)] to-[var(--color-accent-purple)] overflow-hidden">
+    <section id="cta" ref={ref} className="cta relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--color-accent)] via-[var(--color-primary-purple)] to-[var(--color-accent-purple)] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

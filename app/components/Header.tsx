@@ -27,8 +27,6 @@ export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      console.log(`Scrolling to section: ${sectionId}`, element);
-
       // Close mobile menu immediately
       setIsMobileMenuOpen(false);
 
@@ -42,13 +40,12 @@ export default function Header() {
           easing: (t: number) => 1 - Math.pow(1 - t, 3), // easeOutCubic
         });
       } else {
-        // For mobile devices or when Lenis is not available, use native scroll
+        // For mobile devices or when Lenis is not available, use native instant scroll
         const rect = element.getBoundingClientRect();
-        const offsetTop = window.pageYOffset + rect.top - 80; // Account for fixed header height
+        const offsetTop = window.scrollY + rect.top - 80; // Account for fixed header height
 
         window.scrollTo({
           top: offsetTop,
-          behavior: 'smooth'
         });
       }
     } else {

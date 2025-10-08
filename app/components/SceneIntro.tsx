@@ -131,7 +131,7 @@ export default function SceneIntro() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="hook relative py-12 md:py-16 overflow-hidden bg-gradient-to-br from-[var(--color-bg)] via-slate-50 to-violet-50">
+    <section id="hero" ref={sectionRef} className="hook relative py-12 md:py-16 overflow-hidden bg-gradient-to-br from-[var(--color-bg)] via-slate-50 to-violet-50">
       {/* Content Overlay */}
       <div ref={contentRef} className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[80vh]">
