@@ -28,10 +28,14 @@ export default function Home() {
         <SceneSolution />
         
         {/* Features Section */}
-        <SceneFeatures />
+        <section id="features">
+          <SceneFeatures />
+        </section>
 
         {/* How It Works Section */}
-        <SceneHowItWorks />
+        <section id="how-it-works">
+          <SceneHowItWorks />
+        </section>
 
         {/* Demo Section */}
         <SceneDemo />
