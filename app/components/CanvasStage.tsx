@@ -18,8 +18,6 @@ export default function CanvasStage({ children }: { children: React.ReactNode })
   const reducedMotion = usePrefersReducedMotion();
 
 useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-
     let lenis: Lenis | null = null;
     let raf: (time: number) => void;
 
