@@ -44,7 +44,7 @@ export default function Header() {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <img src="/icon.png" alt="Tinty Logo" className="w-10 h-10 rounded-xl" />
+            <img src={process.env.NODE_ENV === 'production' ? '/landing/icon.png' : '/icon.png'} alt="Tinty Logo" className="w-10 h-10 rounded-xl" />
             <span className={`text-xl font-display font-bold transition-colors ${
               isScrolled ? 'text-[var(--color-charcoal)]' : 'text-white'
             }`}>

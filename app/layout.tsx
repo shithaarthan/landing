@@ -17,6 +17,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   title: "Tinty — AI Stylist: Try outfits on your body",
   description: "Tinty is an AI stylist that lets you preview clothing on your own photo. Upload a full-body photo, try outfits, and save your favorite looks before you buy.",
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://shithaarthan.github.io/landing' : 'http://localhost:3000'),
   openGraph: {
     title: "Tinty — AI Stylist: Try outfits on your body",
     description: "Preview outfits on your photo instantly with AI. Upload, try, save.",

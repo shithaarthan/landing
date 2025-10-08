@@ -11,6 +11,7 @@ export default function CanvasStage({ children }: { children: React.ReactNode })
   const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const lenis = new Lenis();
     function raf(time: number) {
       lenis.raf(time);
@@ -18,8 +19,8 @@ export default function CanvasStage({ children }: { children: React.ReactNode })
     }
     requestAnimationFrame(raf);
 
-    if (reducedMotion) {
-      // Disable animations if reduced motion
+    if (reducedMotion || isMobile) {
+      // Disable animations if reduced motion or mobile
       lenis.stop();
       return;
     }
