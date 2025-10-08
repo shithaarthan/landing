@@ -63,13 +63,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no" />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  </head>
       <body
         className={`${inter.variable} ${playfairDisplay.variable} antialiased`}
       >
