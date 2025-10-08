@@ -23,7 +23,8 @@ useEffect(() => {
     let lenis: Lenis | null = null;
     let raf: (time: number) => void;
 
-    if (!isMobile && !reducedMotion) {
+    if (!reducedMotion) {
+      // Enable Lenis on all devices, including mobile
       lenis = new Lenis();
       // Store lenis instance globally for Header navigation
       window.lenis = lenis;
@@ -53,8 +54,15 @@ useEffect(() => {
         }
         if (lenis) {
           lenis.destroy();
+          window.lenis = undefined;
         }
       };
+    }
+
+    // For reduced motion, clean up any existing lenis
+    else if (window.lenis) {
+      window.lenis.destroy();
+      window.lenis = undefined;
     }
 
     // For mobile or reduced motion, no special handling needed - native scroll works

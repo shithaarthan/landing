@@ -71,8 +71,9 @@ export default function SceneHowItWorks() {
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      const currentRef = ref.current;
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

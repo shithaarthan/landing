@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Lenis from 'lenis';
 
-// Extend Window interface to include lenis
+// Extend window interface to include lenis (use the same type as CanvasStage)
 declare global {
   interface Window {
     lenis?: Lenis;
@@ -30,22 +31,19 @@ export default function Header() {
       // Close mobile menu immediately
       setIsMobileMenuOpen(false);
 
-      // Check if Lenis is available (desktop smooth scrolling)
-      const lenis = window.lenis;
-      if (lenis) {
-        // Use Lenis scrollTo for smooth desktop scrolling
-        lenis.scrollTo(element, {
+      // Use Lenis for smooth scrolling
+      if (typeof window !== 'undefined' && window.lenis) {
+        window.lenis.scrollTo(element, {
           offset: -80, // Account for fixed header height
-          duration: 1.2,
-          easing: (t: number) => 1 - Math.pow(1 - t, 3), // easeOutCubic
         });
       } else {
-        // For mobile devices or when Lenis is not available, use native instant scroll
+        // Fallback to native scroll if Lenis isn't available
         const rect = element.getBoundingClientRect();
-        const offsetTop = window.scrollY + rect.top - 80; // Account for fixed header height
+        const offsetTop = window.scrollY + rect.top - 80;
 
         window.scrollTo({
           top: offsetTop,
+          behavior: 'smooth',
         });
       }
     } else {
@@ -73,7 +71,13 @@ export default function Header() {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <img src={process.env.NODE_ENV === 'production' ? '/landing/icon.png' : '/icon.png'} alt="Tinty Logo" className="w-10 h-10 rounded-xl" />
+            <Image
+              src={process.env.NODE_ENV === 'production' ? '/landing/icon.png' : '/icon.png'}
+              alt="Tinty Logo"
+              width={40}
+              height={40}
+              className="rounded-xl"
+            />
             <span className={`text-xl font-display font-bold transition-colors ${
               isScrolled ? 'text-[var(--color-charcoal)]' : 'text-white'
             }`}>

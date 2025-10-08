@@ -126,7 +126,10 @@ export default function SceneIntro() {
     }
 
     return () => {
-      sectionRef.current?.removeEventListener('mousemove', handleMouseMove);
+      const currentSectionRef = sectionRef.current;
+      if (currentSectionRef) {
+        currentSectionRef.removeEventListener('mousemove', handleMouseMove);
+      }
     };
   }, []);
 

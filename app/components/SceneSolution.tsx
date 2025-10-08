@@ -26,8 +26,9 @@ export default function SceneSolution() {
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      const currentRef = ref.current;
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [isVisible]);
@@ -224,7 +225,6 @@ export default function SceneSolution() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--color-charcoal)] break-words">Instant Confidence</h4>
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   <p className="text-[var(--color-charcoal)] opacity-70 break-words">
                     Know exactly what you're getting before clicking "buy". Shop with certainty.
                   </p>

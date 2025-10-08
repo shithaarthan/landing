@@ -1,14 +1,17 @@
 import React from 'react';
+import Image from 'next/image';
 
 const SimplePhoneAnimation = () => {
   return (
     <div className="relative w-full h-full bg-white overflow-hidden flex items-center justify-center">
       {/* Actual Tinty App Icon and Name */}
       <div className="text-center">
-        <img
+        <Image
           src={process.env.NODE_ENV === 'production' ? '/landing/icon.png' : '/icon.png'}
           alt="Tinty Logo"
-          className="w-48 h-48 rounded-xl mx-auto mb-10"
+          width={192}
+          height={192}
+          className="rounded-xl mx-auto mb-10"
         />
 
         {/* App name with gradient text style like AI Stylist */}

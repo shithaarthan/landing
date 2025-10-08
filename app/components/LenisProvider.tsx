@@ -13,7 +13,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
       autoResize: true,
     });
 
-    lenis.on('scroll', (e: any) => {
+    lenis.on('scroll', () => {
       // console.log(e); // Optional: for debugging scroll events
     });
 
