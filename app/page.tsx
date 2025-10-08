@@ -17,43 +17,31 @@ export default function Home() {
       <Header />
       <CanvasStage>
         {/* Hero Section */}
-        <section id="hero">
-          <SceneIntro />
-        </section>
-        
+        <SceneIntro />
+
         {/* Problem Section */}
         <SceneProblem />
-        
+
         {/* Solution Section */}
         <SceneSolution />
-        
+
         {/* Features Section */}
-        <section id="features">
-          <SceneFeatures />
-        </section>
+        <SceneFeatures />
 
         {/* How It Works Section */}
-        <section id="how-it-works">
-          <SceneHowItWorks />
-        </section>
+        <SceneHowItWorks />
 
         {/* Demo Section */}
         <SceneDemo />
 
         {/* Pricing Section */}
-        <section id="pricing">
-          <ScenePricing />
-        </section>
+        <ScenePricing />
 
         {/* Testimonials Section */}
-        <section id="testimonials">
-          <SceneTestimonials />
-        </section>
+        <SceneTestimonials />
 
         {/* CTA Section */}
-        <section id="cta">
-          <SceneCTA />
-        </section>
+        <SceneCTA />
       </CanvasStage>
       <Footer />
     </div>
