@@ -19,8 +19,30 @@ export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      console.log(`Scrolling to section: ${sectionId}`, element);
+
+      // Close mobile menu immediately
       setIsMobileMenuOpen(false);
+
+      // For mobile devices, use a more reliable approach
+      if (window.innerWidth <= 768) {
+        const rect = element.getBoundingClientRect();
+        const offsetTop = window.pageYOffset + rect.top - 80; // Account for fixed header height
+
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      } else {
+        // Desktop scroll behavior
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    } else {
+      console.warn(`Section with id "${sectionId}" not found`);
     }
   };
 

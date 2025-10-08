@@ -78,7 +78,7 @@ export default function SceneHowItWorks() {
   }, []);
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-[var(--color-bg)] to-white py-20">
+    <section id="how-it-works" ref={ref} className="section bg-gradient-to-br from-[var(--color-bg)] to-white py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div

@@ -83,7 +83,7 @@ export default function SceneFeatures() {
   }, []);
 
   return (
-    <section ref={ref} className="features-scene section bg-white py-20">
+    <section id="features" ref={ref} className="features-scene section bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div

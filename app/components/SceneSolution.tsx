@@ -10,11 +10,15 @@ export default function SceneSolution() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        // Lower threshold for mobile and trigger once
+        if (entry.isIntersecting && !isVisible) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      {
+        threshold: window.innerWidth <= 768 ? 0.05 : 0.1,
+        rootMargin: '0px 0px -50px 0px' // Trigger 50px before fully entering viewport
+      }
     );
 
     if (ref.current) {
@@ -26,12 +30,12 @@ export default function SceneSolution() {
         observer.unobserve(ref.current);
       }
     };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-[var(--color-bg)] to-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section ref={ref} className="bg-gradient-to-br from-[var(--color-bg)] to-white py-6 md:py-20 px-4 md:px-6">
+      <div className="w-full md:max-w-7xl md:mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start md:items-center">
           {/* Visual representation - Left side this time */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -41,7 +45,7 @@ export default function SceneSolution() {
           >
             <div className="relative ui-mock">
               {/* Before/After visualization */}
-              <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-white rounded-3xl p-4 md:p-8 shadow-2xl">
                 <div className="space-y-6">
                   {/* Magic wand icon */}
                   <motion.div
@@ -63,14 +67,14 @@ export default function SceneSolution() {
                   </motion.div>
 
                   {/* Transformation visual */}
-                  <div className="flex items-center justify-center gap-4">
+                  <div className="flex items-center justify-center gap-2 md:gap-4">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={isVisible ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.5, delay: 0.3 }}
                       className="flex-1"
                     >
-                      <div className="bg-gray-100 rounded-xl p-4 h-48 flex items-center justify-center">
+                      <div className="bg-gray-100 rounded-xl p-3 md:p-4 h-32 md:h-48 flex items-center justify-center min-h-0 md:min-h-fit">
                         <svg className="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
@@ -99,7 +103,7 @@ export default function SceneSolution() {
                       transition={{ duration: 0.5, delay: 0.5 }}
                       className="flex-1"
                     >
-                      <div className="bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-primary-purple)] rounded-xl p-4 h-48 flex items-center justify-center relative overflow-hidden">
+                      <div className="bg-gradient-to-br from-[var(--color-accent-purple)] to-[var(--color-primary-purple)] rounded-xl p-3 md:p-4 h-32 md:h-48 flex items-center justify-center relative overflow-hidden min-h-0 md:min-h-fit">
                         <svg className="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
@@ -121,16 +125,38 @@ export default function SceneSolution() {
                   </div>
 
                   {/* Check marks */}
-                  <div className="flex justify-center gap-3">
+                  <div className="flex justify-center gap-3 force-motion">
                     {[1, 2, 3].map((i) => (
                       <motion.div
                         key={i}
-                        initial={{ scale: 0 }}
-                        animate={isVisible ? { scale: 1 } : {}}
-                        transition={{ duration: 0.3, delay: 0.7 + (i * 0.1) }}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={isVisible ? { scale: 1, opacity: 1 } : {}}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.7 + (i * 0.15),
+                          type: "spring",
+                          stiffness: 200,
+                          damping: 15
+                        }}
                         className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center"
+                        style={{
+                          animationDuration: '0.4s',
+                          transitionDuration: '0.4s',
+                          willChange: 'transform, opacity'
+                        }}
+                        data-force-animation="true"
                       >
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          style={{
+                            animationDuration: '0.4s',
+                            transitionDuration: '0.4s',
+                            willChange: 'transform'
+                          }}
+                          data-force-animation="true"
+                        >
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </motion.div>
@@ -165,13 +191,13 @@ export default function SceneSolution() {
               The Solution
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--color-charcoal)]">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--color-charcoal)] break-words">
               Tinty lets you{' '}
               <span className="gradient-text">try before you buy</span>
               {' '}— on your own body
             </h2>
 
-            <p className="text-lg text-[var(--color-charcoal)] opacity-80">
+            <p className="text-lg text-[var(--color-charcoal)] opacity-80 break-words">
               Upload your photo once, then instantly see how any outfit looks on your actual body. No more guessing, no more returns, no more disappointment.
             </p>
 
@@ -183,8 +209,8 @@ export default function SceneSolution() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-charcoal)]">Ultra-Realistic Visualization</h4>
-                  <p className="text-[var(--color-charcoal)] opacity-70">
+                  <h4 className="font-semibold text-[var(--color-charcoal)] break-words">Ultra-Realistic Visualization</h4>
+                  <p className="text-[var(--color-charcoal)] opacity-70 break-words">
                     AI-powered technology shows exactly how clothes fit your unique body shape.
                   </p>
                 </div>
@@ -197,9 +223,9 @@ export default function SceneSolution() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-charcoal)]">Instant Confidence</h4>
+                  <h4 className="font-semibold text-[var(--color-charcoal)] break-words">Instant Confidence</h4>
                   {/* eslint-disable-next-line react/no-unescaped-entities */}
-                  <p className="text-[var(--color-charcoal)] opacity-70">
+                  <p className="text-[var(--color-charcoal)] opacity-70 break-words">
                     Know exactly what you're getting before clicking "buy". Shop with certainty.
                   </p>
                 </div>
@@ -212,8 +238,8 @@ export default function SceneSolution() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-charcoal)]">Save Time & Money</h4>
-                  <p className="text-[var(--color-charcoal)] opacity-70">
+                  <h4 className="font-semibold text-[var(--color-charcoal)] break-words">Save Time & Money</h4>
+                  <p className="text-[var(--color-charcoal)] opacity-70 break-words">
                     No more waiting for deliveries or dealing with returns. Get it right the first time.
                   </p>
                 </div>

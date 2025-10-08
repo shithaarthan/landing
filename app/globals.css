@@ -72,10 +72,21 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Force critical animations to work even with reduced motion preference */
+/* Only applies to our key animated elements */
+.force-motion .motion-anim,
+.force-motion [data-testid*="motion"],
+.force-motion .framer-motion-container,
+.force-motion [role="img"][aria-label*="anim"] {
+  animation-duration: var(--framer-motion-duration) !important;
+  animation-iteration-count: var(--framer-motion-iteration) !important;
+  transition-duration: var(--framer-motion-transition) !important;
 }
 
 /* Glass morphism utility */
@@ -252,6 +263,13 @@ html {
 .hover-lift:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Text overflow prevention */
+.break-words {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Text shimmer effect */
