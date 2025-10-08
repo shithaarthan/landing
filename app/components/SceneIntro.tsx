@@ -182,7 +182,7 @@ export default function SceneIntro() {
           </div>
 
           {/* Right side - Phone mockup */}
-          <div className="relative">
+          <div className="relative w-full max-w-full overflow-hidden">
             <div
               ref={phoneMockupRef}
               className="relative mx-auto w-full max-w-xs md:max-w-sm"
@@ -202,9 +202,9 @@ export default function SceneIntro() {
               <div
                 ref={floatingStarRef}
                 data-scene-intro-element
-                className="absolute -top-4 -right-4 w-16 h-16 bg-[var(--color-gold)] rounded-xl shadow-lg flex items-center justify-center"
+                className="absolute -top-4 right-2 md:-right-4 w-12 h-12 md:w-16 md:h-16 bg-[var(--color-gold)] rounded-xl shadow-lg flex items-center justify-center"
               >
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               </div>
@@ -212,9 +212,9 @@ export default function SceneIntro() {
               <div
                 ref={floatingHeartRef}
                 data-scene-intro-element
-                className="absolute -bottom-3 -left-4 w-12 h-12 bg-[var(--color-accent-purple)] rounded-full shadow-lg flex items-center justify-center"
+                className="absolute -bottom-3 left-2 md:-left-4 w-10 h-10 md:w-12 md:h-12 bg-[var(--color-accent-purple)] rounded-full shadow-lg flex items-center justify-center"
               >
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 615.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
               </div>

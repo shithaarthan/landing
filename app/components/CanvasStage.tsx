@@ -52,7 +52,7 @@ useEffect(() => {
   }, [reducedMotion]);
 
   return (
-    <div className="canvas-sticky relative min-h-screen">
+    <div className="canvas-sticky relative min-h-screen w-full overflow-hidden">
       {children}
     </div>
   );
