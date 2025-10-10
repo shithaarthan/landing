@@ -8,8 +8,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  assetPrefix: isProd ? '/landing/' : '',
-  basePath: isProd ? '/landing' : '',
 };
 
 export default nextConfig;
