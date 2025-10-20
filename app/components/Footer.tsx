@@ -117,15 +117,15 @@ export default function Footer() {
               <h3 className="font-display font-bold text-lg mb-4">Support</h3>
               <ul className="space-y-3">
                 {[
-                  'Help Center',
-                  'Contact Us',
-                  'Privacy Policy',
-                  'Terms of Service',
-                  'Cookie Policy',
+                  { name: 'Help Center', href: '#' },
+                  { name: 'Contact Us', href: '#' },
+                  { name: 'Privacy Policy', href: '/privacy-policy' },
+                  { name: 'Terms of Service', href: '#' },
+                  { name: 'Cookie Policy', href: '#' },
                 ].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                      {item}
+                  <li key={item.name}>
+                    <a href={item.href} className="text-gray-300 hover:text-white transition-colors">
+                      {item.name}
                     </a>
                   </li>
                 ))}
