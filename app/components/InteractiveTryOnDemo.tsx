@@ -104,7 +104,7 @@ export default function InteractiveTryOnDemo() {
                             <div className="absolute inset-0 bg-slate-900">
                                 <Image
                                     src={demoImage.before}
-                                    alt="Before Try-on"
+                                    alt="Interactive demo showing user before AI fashion virtual try on"
                                     fill
                                     className="object-cover"
                                     unoptimized
@@ -118,7 +118,7 @@ export default function InteractiveTryOnDemo() {
                             >
                                 <Image
                                     src={demoImage.after}
-                                    alt="After Try-on"
+                                    alt="Interactive demo showing realistic AI clothing try-on results"
                                     fill
                                     className="object-cover"
                                     unoptimized

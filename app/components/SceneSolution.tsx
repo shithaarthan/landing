@@ -30,8 +30,27 @@ export default function SceneSolution() {
   }, []);
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-white to-purple-50 py-20">
+    <section id="problem" ref={ref} className="section bg-gradient-to-br from-white to-purple-50 py-20">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Problem Hook */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[var(--color-charcoal)] mb-4">
+            We've All Been There...
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-3 text-lg text-[var(--color-charcoal)]/70">
+            <p>😩 Ordering clothes online that look nothing like the photos</p>
+            <p>💸 Wasting money on returns and shipping fees</p>
+            <p>⏰ Spending hours trying to imagine "Will this actually look good on me?"</p>
+          </div>
+          <div className="mt-8 inline-block px-6 py-3 bg-[var(--color-primary-purple)]/10 rounded-full">
+            <p className="text-[var(--color-primary-purple)] font-semibold">There's a better way. Let us show you.</p>
+          </div>
+        </motion.div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Visual representation */}
           <motion.div
@@ -69,7 +88,7 @@ export default function SceneSolution() {
                         <div className="rounded-xl overflow-hidden aspect-[4/5] sm:aspect-square relative shadow-inner">
                           <Image
                             src="/demo/before.png"
-                            alt="Original Photo"
+                            alt="Original photo of user before AI fashion styling"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                             unoptimized
@@ -107,7 +126,7 @@ export default function SceneSolution() {
                         <div className="rounded-xl overflow-hidden aspect-[4/5] sm:aspect-square relative shadow-inner">
                           <Image
                             src="/demo/after.jpeg"
-                            alt="AI Generated Result"
+                            alt="AI generated result showing photorealistic virtual clothing try-on"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                             unoptimized
@@ -157,16 +176,16 @@ export default function SceneSolution() {
             className="space-y-6 order-1 md:order-2"
           >
             <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
-              How It Works
+              The Solution
             </div>
 
             <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--color-charcoal)]">
-              See Outfits on Your{' '}
-              <span className="gradient-text">Real Body</span>
+              Try Before You Buy.{' '}
+              <span className="gradient-text">On Your Body.</span>
             </h2>
 
             <p className="text-lg text-[var(--color-charcoal)] opacity-80">
-              Upload your photo and instantly see how any clothing item fits you. Perfect for finding your next favorite look.
+              Our AI shows you exactly how clothes will look on YOUR body in seconds. No more guessing. No more returns. Just confidence.
             </p>
 
             <div className="space-y-4">
@@ -177,9 +196,9 @@ export default function SceneSolution() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-charcoal)]">Find Perfect Matches</h4>
+                  <h4 className="font-semibold text-[var(--color-charcoal)]">💰 Save $500+ Per Year</h4>
                   <p className="text-[var(--color-charcoal)] opacity-70">
-                    See exactly how new pieces will fit with your existing wardrobe
+                    Stop wasting money on returns, shipping, and clothes you'll never wear
                   </p>
                 </div>
               </div>
@@ -191,9 +210,9 @@ export default function SceneSolution() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-charcoal)]">Save Time & Money</h4>
+                  <h4 className="font-semibold text-[var(--color-charcoal)]">⚡ Get Results in 10 Seconds</h4>
                   <p className="text-[var(--color-charcoal)] opacity-70">
-                    Stop ordering and returning clothes that don't fit your style
+                    No more waiting weeks for delivery just to be disappointed
                   </p>
                 </div>
               </div>
@@ -205,21 +224,21 @@ export default function SceneSolution() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-charcoal)]">Build Your Style</h4>
+                  <h4 className="font-semibold text-[var(--color-charcoal)]">🎯 Shop With Confidence</h4>
                   <p className="text-[var(--color-charcoal)] opacity-70">
-                    Create stunning lookbooks without stepping outside your home
+                    Know exactly what you're getting before you click "buy"
                   </p>
                 </div>
               </div>
             </div>
 
             <motion.a
-              href="#download"
+              href="#features"
               className="btn-primary mt-8 inline-block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Download App
+              See All Features →
             </motion.a>
           </motion.div>
         </div>

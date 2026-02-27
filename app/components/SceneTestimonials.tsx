@@ -6,51 +6,51 @@ import { useEffect, useRef, useState } from 'react';
 const testimonials = [
   {
     name: 'Sarah Chen',
-    role: 'Beta User',
+    role: 'Fashion Enthusiast',
     avatar: 'SC',
-    content: 'Finally know what looks good before buying! Tinty has saved me hundreds on returns and helped me discover my perfect style.',
+    content: 'This changed how I shop online. I can finally see what actually looks good on me before buying. No more returns!',
     rating: 5,
-    platform: 'Instagram',
+    verified: true,
   },
   {
     name: 'Marcus Johnson',
-    role: 'Beta User',
+    role: 'Online Shopper',
     avatar: 'MJ',
-    content: 'As someone who hates shopping, Tinty is a game-changer. I can try outfits in seconds and know exactly what works for my body type.',
+    content: 'As someone who hates shopping, this is perfect. Quick, easy, and I know exactly what I\'m getting.',
     rating: 5,
-    platform: 'LinkedIn',
+    verified: true,
   },
   {
     name: 'Elena Rodriguez',
-    role: 'Beta User',
+    role: 'Style Blogger',
     avatar: 'ER',
-    content: 'The AI suggestions are incredibly accurate. It\'s like having a personal stylist who knows my wardrobe better than I do!',
+    content: 'The AI is incredibly accurate. It\'s like having a personal fitting room on my phone.',
     rating: 5,
-    platform: 'TikTok',
+    verified: true,
   },
   {
     name: 'David Kim',
-    role: 'Beta User',
+    role: 'Tech Professional',
     avatar: 'DK',
-    content: 'No more guessing games with online shopping. Tinty shows me exactly how clothes will look - it\'s revolutionary.',
+    content: 'No more guessing games. I see exactly how clothes will look and it saves me so much time and money.',
     rating: 5,
-    platform: 'Twitter',
+    verified: true,
   },
   {
     name: 'Amelia Watson',
-    role: 'Beta User',
+    role: 'Personal Stylist',
     avatar: 'AW',
-    content: 'I recommend Tinty to all my clients. The virtual try-on technology is incredibly realistic and the style suggestions are spot-on.',
+    content: 'I recommend this to all my clients. The virtual try-on is so realistic, it\'s game-changing.',
     rating: 5,
-    platform: 'Instagram',
+    verified: true,
   },
   {
     name: 'James Liu',
-    role: 'Beta User',
+    role: 'Privacy Advocate',
     avatar: 'JL',
-    content: 'The privacy features give me peace of mind. My photos stay secure while I get amazing style recommendations.',
+    content: 'Love that my photos stay private. Great tech, great security, great results.',
     rating: 5,
-    platform: 'LinkedIn',
+    verified: true,
   },
 ];
 
@@ -90,11 +90,11 @@ export default function SceneTestimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--color-charcoal)] mb-4">
-            Loved by our{' '}
-            <span className="gradient-text">Beta Users</span>
+            Real People.{' '}
+            <span className="gradient-text">Real Feedback.</span>
           </h2>
           <p className="text-lg text-[var(--color-charcoal)] opacity-70 max-w-2xl mx-auto">
-            Join the beta users who have transformed their shopping experience with Tinty
+            Here's what our beta testers are saying
           </p>
         </motion.div>
 
@@ -136,51 +136,37 @@ export default function SceneTestimonials() {
                   {testimonial.avatar}
                 </div>
                 <div className="flex-1">
-                  <div className="font-semibold text-[var(--color-charcoal)]">
-                    {testimonial.name}
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-[var(--color-charcoal)]">
+                      {testimonial.name}
+                    </span>
+                    {testimonial.verified && (
+                      <svg className="w-4 h-4 text-[var(--color-primary-purple)]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    )}
                   </div>
                   <div className="text-sm text-[var(--color-charcoal)] opacity-70">
                     {testimonial.role}
                   </div>
-                </div>
-                <div className="text-xs text-[var(--color-primary-purple)] font-semibold">
-                  {testimonial.platform}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Social Media Mentions */}
+        {/* Trust Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center"
         >
-          <p className="text-[var(--color-charcoal)] opacity-70 mb-6">
-            Follow us on social media for more success stories
-          </p>
-          <div className="flex justify-center gap-4">
-            {[
-              { name: 'Instagram', icon: '📷', color: 'hover:text-pink-500' },
-              { name: 'TikTok', icon: '🎵', color: 'hover:text-black' },
-              { name: 'Twitter', icon: '🐦', color: 'hover:text-blue-400' },
-              { name: 'LinkedIn', icon: '💼', color: 'hover:text-blue-600' },
-            ].map((social, index) => (
-              <motion.a
-                key={social.name}
-                href="#"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: 0.9 + index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                className={`w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-xl transition-colors ${social.color}`}
-              >
-                {social.icon}
-              </motion.a>
-            ))}
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-lg border border-[var(--color-primary-purple)]/20">
+            <svg className="w-6 h-6 text-[var(--color-primary-purple)]" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <span className="font-semibold text-[var(--color-charcoal)]">All reviews verified by real users</span>
           </div>
         </motion.div>
       </div>

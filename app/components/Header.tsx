@@ -22,7 +22,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/icon.png" alt="Tinty Logo" className="w-10 h-10 rounded-xl" />
+            <img src="/icon.png" alt="Tinty AI Virtual Try-On App Logo" className="w-10 h-10 rounded-xl" />
             <span className="text-xl font-display font-bold text-[var(--color-charcoal)]">
               Tinty
             </span>
@@ -44,9 +44,13 @@ export default function Header() {
             >
               How It Works
             </a>
-            <Link href="/pricing" className="text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] transition-colors">
+            <a
+              href="#pricing"
+              onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] transition-colors cursor-pointer"
+            >
               Pricing
-            </Link>
+            </a>
             <a
               href="#testimonials"
               onClick={(e) => { e.preventDefault(); document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) }}

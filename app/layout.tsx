@@ -16,28 +16,28 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Tinty — AI Virtual Try-On Mobile App",
-  description: "See exactly how any outfit looks on you before buying with the Tinty mobile app. Ultra-realistic AI virtual try-on in seconds.",
-  keywords: ["AI virtual try-on app", "fashion app", "clothing try-on", "AI fashion design"],
+  title: "Tinty AI Virtual Try-On App | See Clothes On You Instantly",
+  description: "Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying. Reduce fashion returns with our realistic virtual dressing room.",
+  keywords: ["AI virtual try-on app", "virtual dressing room", "try clothes on virtually", "AI fashion technology", "see how clothes look on me", "best app to try on clothes before buying", "AI clothing try-on for online shopping", "reduce fashion returns with AI"],
   openGraph: {
-    title: "Tinty — AI Virtual Try-On Mobile App",
-    description: "See exactly how any outfit looks on you before buying with the Tinty mobile app. Ultra-realistic AI virtual try-on in seconds.",
+    title: "Tinty AI Virtual Try-On App | See Clothes On You Instantly",
+    description: "Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying. Reduce fashion returns with our realistic virtual dressing room.",
     type: "website",
     url: "https://tinty.com",
-    siteName: "Tinty",
+    siteName: "Tinty Virtual Dressing Room",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Tinty AI Virtual Try-On App"
+        alt: "User trying on clothes virtually using Tinty AI App"
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tinty — AI Virtual Try-On Mobile App",
-    description: "See exactly how any outfit looks on you before buying with the Tinty mobile app.",
+    title: "Tinty AI Virtual Try-On App | See Clothes On You Instantly",
+    description: "Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -57,21 +57,21 @@ export default function RootLayout({
       {
         '@type': 'Organization',
         name: 'Tinty',
-        description: 'AI-powered virtual try-on mobile application.',
+        description: 'AI virtual try-on technology company reducing fashion returns.',
         url: 'https://tinty.com',
         logo: 'https://tinty.com/logo.png',
       },
       {
         '@type': 'SoftwareApplication',
-        name: 'Tinty',
-        description: 'AI virtual try-on mobile application.',
+        name: 'Tinty JS AI Fashion App',
+        description: 'AI fashion technology application for virtual clothing try-on.',
         applicationCategory: 'LifestyleApplication',
         operatingSystem: 'iOS, Android',
         offers: {
           '@type': 'Offer',
           price: '0',
           priceCurrency: 'USD',
-          description: 'Free trial available'
+          description: 'Free to download'
         },
         aggregateRating: {
           '@type': 'AggregateRating',
@@ -81,7 +81,7 @@ export default function RootLayout({
       },
       {
         '@type': 'WebSite',
-        name: 'Tinty',
+        name: 'Tinty AI Virtual Try-On',
         url: 'https://tinty.com',
       }
     ],
