@@ -23,7 +23,7 @@ export default function CanvasStage({ children }: { children: React.ReactNode })
       return;
     }
 
-    let tl: any = null;
+    let tl: ReturnType<typeof initTimeline> | null = null;
 
     // Add delay to ensure hydration loader has faded before animations start
     const animationTimer = setTimeout(() => {

@@ -133,21 +133,19 @@ export default function ScenePricing() {
           >
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
-                billingCycle === 'monthly'
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${billingCycle === 'monthly'
                   ? 'bg-white text-[var(--color-primary-purple)] shadow-sm'
                   : 'text-gray-600 hover:text-[var(--color-charcoal)]'
-              }`}
+                }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle('yearly')}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all relative ${
-                billingCycle === 'yearly'
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all relative ${billingCycle === 'yearly'
                   ? 'bg-white text-[var(--color-primary-purple)] shadow-sm'
                   : 'text-gray-600 hover:text-[var(--color-charcoal)]'
-              }`}
+                }`}
             >
               Yearly
               <span className="absolute -top-2 -right-2 bg-[var(--color-gold)] text-white text-xs px-2 py-0.5 rounded-full">
@@ -240,11 +238,10 @@ export default function ScenePricing() {
 
                 {/* CTA Button */}
                 <motion.button
-                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all ${
-                    tier.popular
+                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all ${tier.popular
                       ? 'btn-primary'
                       : 'btn-secondary'
-                  }`}
+                    }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -274,7 +271,7 @@ export default function ScenePricing() {
               },
               {
                 question: 'What happens if I exceed my monthly limit?',
-                answer: 'You can purchase additional credits or wait for your next billing cycle. Unused credits roll over.',
+                answer: 'You can upgrade to a higher plan or wait for your next billing cycle when credits reset.',
               },
               {
                 question: 'Is my data secure?',

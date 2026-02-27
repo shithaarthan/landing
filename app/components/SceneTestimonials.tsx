@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 const testimonials = [
   {
     name: 'Sarah Chen',
-    role: 'Fashion Blogger',
+    role: 'Beta User',
     avatar: 'SC',
     content: 'Finally know what looks good before buying! Tinty has saved me hundreds on returns and helped me discover my perfect style.',
     rating: 5,
@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     name: 'Marcus Johnson',
-    role: 'Busy Professional',
+    role: 'Beta User',
     avatar: 'MJ',
     content: 'As someone who hates shopping, Tinty is a game-changer. I can try outfits in seconds and know exactly what works for my body type.',
     rating: 5,
@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     name: 'Elena Rodriguez',
-    role: 'Style Enthusiast',
+    role: 'Beta User',
     avatar: 'ER',
     content: 'The AI suggestions are incredibly accurate. It\'s like having a personal stylist who knows my wardrobe better than I do!',
     rating: 5,
@@ -30,7 +30,7 @@ const testimonials = [
   },
   {
     name: 'David Kim',
-    role: 'Online Shopper',
+    role: 'Beta User',
     avatar: 'DK',
     content: 'No more guessing games with online shopping. Tinty shows me exactly how clothes will look - it\'s revolutionary.',
     rating: 5,
@@ -38,7 +38,7 @@ const testimonials = [
   },
   {
     name: 'Amelia Watson',
-    role: 'Wardrobe Consultant',
+    role: 'Beta User',
     avatar: 'AW',
     content: 'I recommend Tinty to all my clients. The virtual try-on technology is incredibly realistic and the style suggestions are spot-on.',
     rating: 5,
@@ -46,19 +46,12 @@ const testimonials = [
   },
   {
     name: 'James Liu',
-    role: 'Tech Professional',
+    role: 'Beta User',
     avatar: 'JL',
     content: 'The privacy features give me peace of mind. My photos stay secure while I get amazing style recommendations.',
     rating: 5,
     platform: 'LinkedIn',
   },
-];
-
-const stats = [
-  { number: '10k+', label: 'Happy Users' },
-  { number: '4.9/5', label: 'Average Rating' },
-  { number: '50k+', label: 'Outfits Tried' },
-  { number: '95%', label: 'Accuracy Rate' },
 ];
 
 export default function SceneTestimonials() {
@@ -97,38 +90,12 @@ export default function SceneTestimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold text-[var(--color-charcoal)] mb-4">
-            Loved by{' '}
-            <span className="gradient-text">Fashion Lovers</span>
-            {' '}Everywhere
+            Loved by our{' '}
+            <span className="gradient-text">Beta Users</span>
           </h2>
           <p className="text-lg text-[var(--color-charcoal)] opacity-70 max-w-2xl mx-auto">
-            Join thousands of users who have transformed their shopping experience with Tinty
+            Join the beta users who have transformed their shopping experience with Tinty
           </p>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              className="text-center"
-            >
-              <div className="text-3xl md:text-4xl font-display font-bold text-[var(--color-primary-purple)] mb-2">
-                {stat.number}
-              </div>
-              <div className="text-[var(--color-charcoal)] opacity-70">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Testimonials Grid */}

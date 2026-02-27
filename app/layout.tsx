@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import HydrationLoader from "./components/HydrationLoader";
+import Providers from "./components/Providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,24 +16,33 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Tinty — AI Stylist: Try outfits on your body",
-  description: "Tinty is an AI stylist that lets you preview clothing on your own photo. Upload a full-body photo, try outfits, and save your favorite looks before you buy.",
+  title: "Tinty — AI Virtual Try-On Mobile App",
+  description: "See exactly how any outfit looks on you before buying with the Tinty mobile app. Ultra-realistic AI virtual try-on in seconds.",
+  keywords: ["AI virtual try-on app", "fashion app", "clothing try-on", "AI fashion design"],
   openGraph: {
-    title: "Tinty — AI Stylist: Try outfits on your body",
-    description: "Preview outfits on your photo instantly with AI. Upload, try, save.",
+    title: "Tinty — AI Virtual Try-On Mobile App",
+    description: "See exactly how any outfit looks on you before buying with the Tinty mobile app. Ultra-realistic AI virtual try-on in seconds.",
+    type: "website",
+    url: "https://tinty.com",
+    siteName: "Tinty",
     images: [
       {
-        url: "/og-image.jpg", // Need to create or provide
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
+        alt: "Tinty AI Virtual Try-On App"
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tinty — AI Stylist",
-    description: "Preview outfits on your photo instantly with AI.",
+    title: "Tinty — AI Virtual Try-On Mobile App",
+    description: "See exactly how any outfit looks on you before buying with the Tinty mobile app.",
     images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -47,17 +57,33 @@ export default function RootLayout({
       {
         '@type': 'Organization',
         name: 'Tinty',
-        description: 'AI stylist that lets you preview clothing on your own photo.',
+        description: 'AI-powered virtual try-on mobile application.',
         url: 'https://tinty.com',
         logo: 'https://tinty.com/logo.png',
       },
       {
         '@type': 'SoftwareApplication',
         name: 'Tinty',
-        description: 'AI stylist application for outfit preview on your body.',
+        description: 'AI virtual try-on mobile application.',
         applicationCategory: 'LifestyleApplication',
-        operatingSystem: 'Web',
+        operatingSystem: 'iOS, Android',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+          description: 'Free trial available'
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          ratingCount: '10000'
+        }
       },
+      {
+        '@type': 'WebSite',
+        name: 'Tinty',
+        url: 'https://tinty.com',
+      }
     ],
   };
 
@@ -72,9 +98,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfairDisplay.variable} antialiased`}
       >
-        <HydrationLoader>
-          {children}
-        </HydrationLoader>
+        <Providers>
+          <HydrationLoader>
+            {children}
+          </HydrationLoader>
+        </Providers>
       </body>
     </html>
   );

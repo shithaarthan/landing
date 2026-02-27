@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,12 +29,6 @@ export default function Footer() {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <footer ref={ref} className="bg-[var(--color-charcoal)] text-white">
@@ -56,11 +51,11 @@ export default function Footer() {
                 </div>
                 <span className="text-xl font-display font-bold">Tinty</span>
               </div>
-              
+
               <p className="text-gray-300 mb-6 max-w-md">
                 Your personal AI stylist and virtual try-on mirror. See yourself in style before you buy.
               </p>
-              
+
               <div className="flex gap-4">
                 {[
                   { name: 'Instagram', icon: '📷' },
@@ -92,16 +87,23 @@ export default function Footer() {
                 {[
                   { name: 'Features', id: 'features' },
                   { name: 'How It Works', id: 'how-it-works' },
-                  { name: 'Pricing', id: 'pricing' },
-                  { name: 'Mobile App', id: '' },
+                  { name: 'Pricing', href: '/pricing' },
+                  { name: 'Mobile App', id: 'download' },
                 ].map((item) => (
                   <li key={item.name}>
-                    <button
-                      onClick={() => item.id && scrollToSection(item.id)}
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      {item.name}
-                    </button>
+                    {item.href ? (
+                      <Link href={item.href} className="text-gray-300 hover:text-white transition-colors cursor-pointer">
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={`#${item.id}`}
+                        onClick={(e) => { e.preventDefault(); if (item.id) document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' }) }}
+                        className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                      >
+                        {item.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -116,16 +118,16 @@ export default function Footer() {
               <h3 className="font-display font-bold text-lg mb-4">Support</h3>
               <ul className="space-y-3">
                 {[
-                  'Help Center',
-                  'Contact Us',
-                  'Privacy Policy',
-                  'Terms of Service',
-                  'Cookie Policy',
+                  { name: 'Help Center', href: '#' },
+                  { name: 'Contact Us', href: '#' },
+                  { name: 'Privacy Policy', href: '#' },
+                  { name: 'Terms of Service', href: '#' },
+                  { name: 'Cookie Policy', href: '#' },
                 ].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                      {item}
-                    </a>
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-gray-300 hover:text-white transition-colors">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -147,7 +149,7 @@ export default function Footer() {
             <p className="text-gray-300 text-sm mb-4">
               Get the latest updates on new features and style tips
             </p>
-            
+
             <div className="flex gap-2">
               <input
                 type="email"
@@ -176,14 +178,14 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               © 2024 Tinty. All rights reserved.
             </p>
-            
+
             <div className="flex items-center gap-6 text-sm text-gray-400">
               <span>Built with ❤️ for fashion lovers</span>
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-[var(--color-gold)]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                <span>Trusted by 10k+ users</span>
+                <span>Trusted by our Beta Users</span>
               </div>
             </div>
           </div>
