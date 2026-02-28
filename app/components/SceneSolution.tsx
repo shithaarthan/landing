@@ -30,7 +30,7 @@ export default function SceneSolution() {
   }, []);
 
   return (
-    <section id="problem" ref={ref} className="section bg-gradient-to-br from-white to-purple-50 py-20">
+    <section id="problem" ref={ref} className="section bg-gradient-to-br from-white to-purple-50 py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Problem Hook */}
         <motion.div

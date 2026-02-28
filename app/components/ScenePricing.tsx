@@ -75,7 +75,7 @@ export default function ScenePricing() {
   }, []);
 
   return (
-    <section ref={ref} className="section bg-white py-20">
+    <section ref={ref} className="section bg-white py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -179,8 +179,8 @@ export default function ScenePricing() {
                 {/* CTA Button */}
                 <motion.button
                   className={`w-full py-3 px-6 rounded-xl font-semibold transition-all mt-auto ${tier.popular
-                      ? 'btn-primary'
-                      : 'btn-secondary'
+                    ? 'btn-primary'
+                    : 'btn-secondary'
                     }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

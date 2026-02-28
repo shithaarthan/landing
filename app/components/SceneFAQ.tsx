@@ -57,7 +57,7 @@ export default function SceneFAQ() {
   }, []);
 
   return (
-    <section ref={ref} className="section bg-gradient-to-br from-white to-purple-50 py-20">
+    <section ref={ref} className="section bg-gradient-to-br from-white to-purple-50 py-20 overflow-hidden">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -30,7 +30,7 @@ export default function SceneCTA() {
   }, []);
 
   return (
-    <section id="download" ref={ref} className="py-20 bg-gradient-to-br from-[var(--color-primary-purple)] via-[var(--color-accent-purple)] to-purple-900">
+    <section id="download" ref={ref} className="py-20 bg-gradient-to-br from-[var(--color-primary-purple)] via-[var(--color-accent-purple)] to-purple-900 overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
