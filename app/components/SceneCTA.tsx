@@ -2,11 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 
 export default function SceneCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,9 +26,11 @@ export default function SceneCTA() {
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      const currentRef = ref.current;
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
+      observer.disconnect();
     };
   }, []);
 
@@ -49,8 +54,12 @@ export default function SceneCTA() {
           </p>
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
+            <a
               href="#download"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('hero');
+              }}
               className="blob-btn text-white text-lg font-bold"
               style={{ padding: '20px 46px' }}
             >
@@ -63,7 +72,7 @@ export default function SceneCTA() {
                   <span className="blob-btn__blob"></span>
                 </span>
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Trust Indicators */}

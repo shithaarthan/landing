@@ -1,15 +1,16 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    // Scroll handling could be added here if needed
-  }, []);
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.header
@@ -22,7 +23,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/icon.png" alt="Tinty AI Virtual Try-On App Logo" className="w-10 h-10 rounded-xl" />
+            <Image
+              src="/icon.png"
+              alt="Tinty AI Virtual Try-On App Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10 rounded-xl"
+              unoptimized
+            />
             <span className="text-xl font-display font-bold text-[var(--color-charcoal)]">
               Tinty
             </span>
@@ -32,28 +40,28 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-6">
             <a
               href="#features"
-              onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) }}
+              onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}
               className="text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] transition-colors cursor-pointer"
             >
               Features
             </a>
             <a
               href="#how-it-works"
-              onClick={(e) => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }) }}
+              onClick={(e) => { e.preventDefault(); scrollToSection('how-it-works'); }}
               className="text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] transition-colors cursor-pointer"
             >
               How It Works
             </a>
             <a
               href="#pricing"
-              onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }) }}
+              onClick={(e) => { e.preventDefault(); scrollToSection('pricing'); }}
               className="text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] transition-colors cursor-pointer"
             >
               Pricing
             </a>
             <a
               href="#testimonials"
-              onClick={(e) => { e.preventDefault(); document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) }}
+              onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}
               className="text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] transition-colors cursor-pointer"
             >
               Reviews
@@ -61,7 +69,11 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <Link href="#download" className="blob-btn">
+            <a
+              href="#download"
+              onClick={(e) => { e.preventDefault(); scrollToSection('download'); }}
+              className="blob-btn"
+            >
               Download App
               <span className="blob-btn__inner">
                 <span className="blob-btn__blobs">
@@ -71,7 +83,7 @@ export default function Header() {
                   <span className="blob-btn__blob"></span>
                 </span>
               </span>
-            </Link>
+            </a>
           </div>
 
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }}>
@@ -88,6 +100,8 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg text-[var(--color-charcoal)]"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -112,37 +126,57 @@ export default function Header() {
               <div className="p-4 space-y-3">
                 <a
                   href="#features"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    scrollToSection('features');
+                  }}
                   className="block w-full text-left py-2 text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] font-medium"
                 >
                   Features
                 </a>
                 <a
                   href="#how-it-works"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    scrollToSection('how-it-works');
+                  }}
                   className="block w-full text-left py-2 text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] font-medium"
                 >
                   How It Works
                 </a>
-                <Link
-                  href="/pricing"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <a
+                  href="#pricing"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    scrollToSection('pricing');
+                  }}
                   className="block w-full text-left py-2 text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] font-medium"
                 >
                   Pricing
-                </Link>
+                </a>
                 <a
                   href="#testimonials"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    scrollToSection('testimonials');
+                  }}
                   className="block w-full text-left py-2 text-[var(--color-charcoal)] hover:text-[var(--color-primary-purple)] font-medium"
                 >
                   Reviews
                 </a>
 
                 <div className="pt-3 border-t border-gray-100 flex justify-center">
-                  <Link
+                  <a
                     href="#download"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      scrollToSection('download');
+                    }}
                     className="blob-btn w-full"
                   >
                     Download App
@@ -154,7 +188,7 @@ export default function Header() {
                         <span className="blob-btn__blob"></span>
                       </span>
                     </span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </motion.div>

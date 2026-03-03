@@ -15,6 +15,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tinty.com"),
   title: "Tinty AI Virtual Try-On App | See Clothes On You Instantly",
   description: "Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying. Reduce fashion returns with our realistic virtual dressing room.",
   keywords: ["AI virtual try-on app", "virtual dressing room", "try clothes on virtually", "AI fashion technology", "see how clothes look on me", "best app to try on clothes before buying", "AI clothing try-on for online shopping", "reduce fashion returns with AI"],

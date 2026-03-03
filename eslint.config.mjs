@@ -17,6 +17,7 @@ const eslintConfig = [
       ".next/**",
       "out/**",
       "build/**",
+      "public/draco-gltf/**",
       "next-env.d.ts",
     ],
   },

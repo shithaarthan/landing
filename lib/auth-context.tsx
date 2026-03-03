@@ -34,7 +34,7 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
     }
 
     const handleSignInWithGoogle = async () => {
-        await signIn('google', { callbackUrl: '/dashboard' });
+        await signIn('google', { callbackUrl: '/' });
     };
 
     const handleSignOut = async () => {
