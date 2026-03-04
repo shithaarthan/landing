@@ -71,6 +71,11 @@ export default function Footer() {
                     Privacy Policy
                   </Link>
                 </li>
+                <li>
+                  <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
+                    Terms of Use
+                  </Link>
+                </li>
               </ul>
             </motion.div>
           </div>
@@ -88,9 +93,15 @@ export default function Footer() {
               © 2024 Tinty. All rights reserved.
             </p>
 
-            <Link href="/privacy" className="text-sm text-gray-300 hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
+            <div className="flex items-center gap-4 text-sm">
+              <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
+                Terms of Use
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>
