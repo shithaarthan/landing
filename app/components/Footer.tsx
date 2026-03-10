@@ -31,48 +31,49 @@ export default function Footer() {
     };
   }, []);
 
-
   return (
     <footer ref={ref} className="bg-[var(--color-charcoal)] text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Main Footer Content */}
         <div className="py-16">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Brand Column */}
+          <div className="grid gap-8 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-[var(--color-primary-purple)] to-[var(--color-accent-purple)] rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 8a9 9 0 110-18 9 9 0 010 18z" />
+              <div className="mb-4 flex items-center gap-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-primary-purple)] to-[var(--color-accent-purple)]">
+                  <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 8a9 9 0 110-18 9 9 0 010 18z"
+                    />
                   </svg>
                 </div>
                 <span className="text-xl font-display font-bold">Tinty</span>
               </div>
 
-              <p className="text-gray-300 mb-6 max-w-md">
+              <p className="mb-6 max-w-md text-gray-300">
                 Your personal AI stylist and virtual try-on mirror. See yourself in style before you buy.
               </p>
             </motion.div>
 
-            {/* Legal Column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3 className="font-display font-bold text-lg mb-4">Legal</h3>
+              <h3 className="mb-4 text-lg font-display font-bold">Legal</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
+                  <Link href="/privacy/" className="text-gray-300 transition-colors hover:text-white">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
+                  <Link href="/terms/" className="text-gray-300 transition-colors hover:text-white">
                     Terms of Use
                   </Link>
                 </li>
@@ -81,24 +82,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="py-6 border-t border-gray-800"
+          className="border-t border-gray-800 py-6"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © 2024 Tinty. All rights reserved.
-            </p>
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-sm text-gray-400">Copyright 2024 Tinty. All rights reserved.</p>
 
             <div className="flex items-center gap-4 text-sm">
-              <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/privacy/" className="text-gray-300 transition-colors hover:text-white">
                 Privacy Policy
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/terms/" className="text-gray-300 transition-colors hover:text-white">
                 Terms of Use
               </Link>
             </div>

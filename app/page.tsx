@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CanvasStage from '@/components/CanvasStage';
@@ -10,45 +11,67 @@ import SceneTestimonials from '@/components/SceneTestimonials';
 import SceneFAQ from '@/components/SceneFAQ';
 import SceneCTA from '@/components/SceneCTA';
 
+export const metadata: Metadata = {
+  title: 'AI Virtual Try-On App | See Clothes On You Instantly',
+  description:
+    'Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying. Reduce fashion returns with our realistic virtual dressing room.',
+  keywords: [
+    'AI virtual try-on app',
+    'virtual dressing room',
+    'try clothes on virtually',
+    'AI fashion technology',
+    'see how clothes look on me',
+    'best app to try on clothes before buying',
+    'AI clothing try-on for online shopping',
+    'reduce fashion returns with AI',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Tinty AI Virtual Try-On App | See Clothes On You Instantly',
+    description:
+      'Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying. Reduce fashion returns with our realistic virtual dressing room.',
+    url: '/',
+  },
+  twitter: {
+    title: 'Tinty AI Virtual Try-On App | See Clothes On You Instantly',
+    description:
+      'Try clothes on virtually with the Tinty AI virtual try-on app. See exactly how outfits look on you before buying.',
+  },
+};
+
 export default function Home() {
   return (
     <div className="story-root">
       <Header />
       <CanvasStage>
-        {/* Hero Section */}
         <section id="hero">
           <SceneIntro />
         </section>
 
-        {/* Solution - What Tinty Does */}
         <SceneSolution />
 
-        {/* Features Section */}
         <section id="features">
           <SceneFeatures />
         </section>
 
-        {/* Pricing Section */}
         <section id="pricing">
           <ScenePricing />
         </section>
 
-        {/* How It Works Section */}
         <section id="how-it-works">
           <SceneHowItWorks />
         </section>
 
-        {/* Testimonials Section */}
         <section id="testimonials">
           <SceneTestimonials />
         </section>
 
-        {/* FAQ Section */}
         <section id="faq">
           <SceneFAQ />
         </section>
 
-        {/* CTA Section */}
         <section id="cta">
           <SceneCTA />
         </section>
@@ -57,6 +80,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
