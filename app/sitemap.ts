@@ -7,19 +7,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: 'https://tinty.com/',
+      url: 'https://tinty.fashion/',
       lastModified,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://tinty.com/privacy/',
+      url: 'https://tinty.fashion/privacy/',
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: 'https://tinty.com/terms/',
+      url: 'https://tinty.fashion/terms/',
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.3,

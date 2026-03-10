@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://tinty.com/sitemap.xml',
+    sitemap: 'https://tinty.fashion/sitemap.xml',
   };
 }

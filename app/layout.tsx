@@ -15,7 +15,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tinty.com"),
+  metadataBase: new URL("https://tinty.fashion"),
   title: {
     default: "Tinty",
     template: "%s | Tinty",
@@ -55,8 +55,8 @@ export default function RootLayout({
         "@type": "Organization",
         name: "Tinty",
         description: "AI virtual try-on technology company reducing fashion returns.",
-        url: "https://tinty.com",
-        logo: "https://tinty.com/logo.png",
+        url: "https://tinty.fashion",
+        logo: "https://tinty.fashion/logo.png",
       },
       {
         "@type": "SoftwareApplication",
@@ -79,7 +79,7 @@ export default function RootLayout({
       {
         "@type": "WebSite",
         name: "Tinty AI Virtual Try-On",
-        url: "https://tinty.com",
+        url: "https://tinty.fashion",
       },
     ],
   };
