@@ -69,9 +69,9 @@ export default function DataDeletionPage() {
                 You can request account deletion by emailing us directly at{' '}
                 <a
                   className="font-semibold text-[var(--color-primary-purple)] hover:underline"
-                  href="mailto:support@tinty.app"
+                  href="mailto:support@tinty.fashion"
                 >
-                  support@tinty.app
+                  support@tinty.fashion
                 </a>{' '}
                 from the email address associated with your Tinty account.
               </p>
