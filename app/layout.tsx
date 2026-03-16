@@ -16,6 +16,9 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tinty.fashion"),
+  alternates: {
+    canonical: "https://tinty.fashion/",
+  },
   title: {
     default: "Tinty",
     template: "%s | Tinty",
