@@ -70,8 +70,9 @@ export default function Header() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#download"
-              onClick={(e) => { e.preventDefault(); scrollToSection('download'); }}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf_jW2e4L9IP-aFCz6osbZTABy4vdYG_q3b14xSSk86Vy5TTw/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
               className="blob-btn"
             >
               Join Beta
@@ -171,12 +172,9 @@ export default function Header() {
 
                 <div className="pt-3 border-t border-gray-100 flex justify-center">
                   <a
-                    href="#download"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsMobileMenuOpen(false);
-                      scrollToSection('download');
-                    }}
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSf_jW2e4L9IP-aFCz6osbZTABy4vdYG_q3b14xSSk86Vy5TTw/viewform?usp=sf_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="blob-btn w-full"
                   >
                     Join Beta

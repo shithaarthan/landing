@@ -5,9 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function SceneCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -35,24 +33,14 @@ export default function SceneCTA() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!email || !email.includes('@')) {
-      return;
-    }
-
-    // Google Form - opens in new tab
+    
     const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf_jW2e4L9IP-aFCz6osbZTABy4vdYG_q3b14xSSk86Vy5TTw/viewform?usp=sf_link';
-
-    setLoading(true);
-
-    // Open Google Form in new tab
+    
     window.open(googleFormUrl, '_blank');
-
-    // Show success on landing page
+    
     setTimeout(() => {
       setSubmitted(true);
-      setLoading(false);
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -87,37 +75,24 @@ export default function SceneCTA() {
               </p>
 
               <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-6 py-4 rounded-xl text-[var(--color-charcoal)] font-medium placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="blob-btn text-white text-lg font-bold px-8 py-4 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
-                  >
-                    {loading ? 'Opening...' : 'Join Beta'}
-                    {!loading && (
-                      <span className="blob-btn__inner">
-                        <span className="blob-btn__blobs">
-                          <span className="blob-btn__blob"></span>
-                          <span className="blob-btn__blob"></span>
-                          <span className="blob-btn__blob"></span>
-                          <span className="blob-btn__blob"></span>
-                        </span>
-                      </span>
-                    )}
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="blob-btn text-white text-lg font-bold px-8 py-4 whitespace-nowrap"
+                >
+                  Join Beta
+                  <span className="blob-btn__inner">
+                    <span className="blob-btn__blobs">
+                      <span className="blob-btn__blob"></span>
+                      <span className="blob-btn__blob"></span>
+                      <span className="blob-btn__blob"></span>
+                      <span className="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
               </form>
 
               <p className="text-sm text-white/60">
-                Fill out the form to secure your spot. No spam, ever.
+                Click to fill out the beta signup form. Limited spots available.
               </p>
             </>
           )}
