@@ -74,7 +74,7 @@ export default function Header() {
               onClick={(e) => { e.preventDefault(); scrollToSection('download'); }}
               className="blob-btn"
             >
-              Download App
+              Join Beta
               <span className="blob-btn__inner">
                 <span className="blob-btn__blobs">
                   <span className="blob-btn__blob"></span>
@@ -179,7 +179,7 @@ export default function Header() {
                     }}
                     className="blob-btn w-full"
                   >
-                    Download App
+                    Join Beta
                     <span className="blob-btn__inner">
                       <span className="blob-btn__blobs">
                         <span className="blob-btn__blob"></span>
