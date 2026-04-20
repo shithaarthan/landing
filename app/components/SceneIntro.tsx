@@ -57,8 +57,8 @@ export default function SceneIntro() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="#download" className="blob-btn" style={{ padding: '18px 40px', fontSize: '16px' }}>
-                Download Now
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_jW2e4L9IP-aFCz6osbZTABy4vdYG_q3b14xSSk86Vy5TTw/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" className="blob-btn" style={{ padding: '18px 40px', fontSize: '16px' }}>
+                Join Beta
                 <span className="blob-btn__inner">
                   <span className="blob-btn__blobs">
                     <span className="blob-btn__blob"></span>
